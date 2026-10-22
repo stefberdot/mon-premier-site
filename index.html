@@ -89,6 +89,53 @@
   object-fit: contain;
   background-color: #11110f; /* Fond harmonisé avec le site */
 }
+    /* Style du texte et des infos sous la boutique */
+.boutique-details {
+  text-align: center;
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px dashed var(--line);
+}
+
+.boutique-subtext {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 25px;
+}
+
+.boutique-info-box {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  background: var(--panel);
+  border: 1px solid #35312a;
+  padding: 20px 30px;
+  border-radius: 3px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  color: var(--gold);
+}
+
+.info-valeur {
+  font-size: 14px;
+  color: var(--muted);
+}
   </style>
 </head>
 <body>
@@ -225,6 +272,21 @@
           <div class="boutique-card">
           <img src="miroir.jpg" alt="Zone d'accueil et de dessin">
           <div class="boutique-card-content">
+        </div>
+      </div>
+    </div>
+        <!-- INFOS ET ADRESSE SOUS LES PHOTOS -->
+    <div class="boutique-details">
+      <p class="boutique-subtext">Un espace accueillant, situé au cœur de Castelginest.</p>
+      
+      <div class="boutique-info-box">
+        <div class="info-block">
+          <span class="info-label">📍 Adresse</span>
+          <span class="info-valeur">6 rue Saint-Charles, 31780 Castelginest</span>
+        </div>
+        <div class="info-block">
+          <span class="info-label">🕒 Horaires</span>
+          <span class="info-valeur">Mardi – Samedi : 10h-17h Lundi : uniquement sur rdv</span>
         </div>
       </div>
     </div>
