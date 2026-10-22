@@ -1,81 +1,157 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon premier site</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #0f172a;
-        color: white;
-        text-align: center;
-    }
-
-    header {
-        padding: 20px;
-        background: #1e293b;
-    }
-
-    main {
-        padding: 100px 20px;
-    }
-
-    h1 {
-        font-size: 42px;
-        color: #2dd4bf;
-    }
-
-    p {
-        font-size: 18px;
-        color: #cbd5e1;
-        line-height: 1.6;
-    }
-
-    .bouton {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 14px 25px;
-        background: #2dd4bf;
-        color: #0f172a;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-    }
-
-    footer {
-        padding: 25px;
-        color: #94a3b8;
-    }
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080807">
+  <meta name="description" content="Stef Berdot Memoriam, tatoueur à Castelginest au nord de Toulouse. Réalisme, graphique et projets personnalisés.">
+  <title>Stef Berdot Memoriam — Tattoo Artist</title>
+  <style>
+    :root{--bg:#090908;--panel:#11110f;--ink:#f4f0e8;--muted:#b9b3a8;--gold:#d5b68a;--line:#38342d}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+    a{color:inherit}
+    .wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:5;background:rgba(8,8,7,.94);backdrop-filter:blur(10px);border-bottom:1px solid #292722}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:Georgia,serif;font-size:22px;font-style:italic;line-height:1.05;text-decoration:none;letter-spacing:.02em}
+    .brand small{display:block;font-size:11px;font-style:normal;letter-spacing:.45em;text-align:center;margin-top:7px}
+    nav{display:flex;gap:23px;align-items:center;flex-wrap:wrap}
+    nav a{text-decoration:none;text-transform:uppercase;font-size:11px;letter-spacing:.1em;color:#e1ddd5}
+    nav a:hover,.text-link:hover{color:var(--gold)}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 20px;border:1px solid var(--gold);border-radius:3px;text-decoration:none;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:bold;background:var(--gold);color:#14110c;transition:.2s}
+    .button:hover{background:transparent;color:var(--gold)}
+    .button.outline{background:transparent;color:var(--gold)}
+    .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 78% 42%,#38322b 0%,#171614 28%,#090908 67%)}
+    .hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:repeating-linear-gradient(125deg,transparent 0 12px,rgba(255,255,255,.025) 13px,transparent 14px 29px)}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;min-height:490px;align-items:center;gap:30px;padding-top:54px;padding-bottom:54px}
+    .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.32em;color:var(--gold)}
+    h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(42px,6vw,76px);line-height:.98;font-weight:normal;margin:20px 0 6px;letter-spacing:-.04em}
+    h1 em{font-style:italic;color:#e0d5c4}
+    .memoriam{font-family:Georgia,serif;letter-spacing:.48em;font-size:16px;margin:18px 0 24px;color:var(--gold)}
+    .tagline{font-family:Georgia,serif;font-style:italic;font-size:clamp(22px,3vw,31px);line-height:1.25;max-width:460px}
+    .intro{max-width:490px;color:#c7c2b9;font-size:15px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+    .art{min-height:350px;display:flex;align-items:center;justify-content:center;position:relative}
+    .ink-circle{width:min(390px,100%);aspect-ratio:1;border:1px solid #75634e;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;background:radial-gradient(circle,#29251f 0%,#131210 53%,transparent 70%);box-shadow:0 0 80px #000 inset}
+    .ink-circle:before,.ink-circle:after{content:"";position:absolute;border:1px solid #75634e;border-radius:50%;inset:20px}
+    .ink-circle:after{inset:42px;border-style:dashed;opacity:.6}
+    .tattoo-mark{font-size:clamp(95px,17vw,180px);font-family:Georgia,serif;color:#c8b79e;text-shadow:0 8px 35px #000;transform:rotate(-12deg)}
+    .art-caption{position:absolute;bottom:13px;right:8px;color:#c8b99f;font-size:10px;letter-spacing:.28em;text-transform:uppercase}
+    .styles{border-bottom:1px solid var(--line);background:#0d0d0b}
+    .style-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:26px 0}
+    .style{padding:10px 18px;text-align:center;border-right:1px solid var(--line)}
+    .style:last-child{border:0}
+    .style .symbol{font-family:Georgia,serif;font-size:28px;color:var(--gold)}
+    .style h3{font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin:8px 0}
+    .style p{font-size:12px;color:var(--muted);margin:0}
+    section{padding:76px 0}
+    .section-head{text-align:center;margin:0 auto 35px}
+    .section-head h2,.about-copy h2,.contact h2{font-family:Georgia,serif;font-weight:normal;font-size:clamp(28px,4vw,42px);letter-spacing:.08em;text-transform:uppercase;margin:8px 0}
+    .rule{width:48px;height:1px;background:var(--gold);margin:17px auto}
+    .section-head p{color:var(--muted);max-width:590px;margin:0 auto}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .gallery-card{min-height:220px;border:1px solid #35312a;background:linear-gradient(145deg,#24211d,#0d0d0c);display:flex;align-items:end;padding:20px;position:relative;overflow:hidden}
+    .gallery-card:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 25%,rgba(213,182,138,.19),transparent 55%)}
+    .gallery-card span{position:relative;font-family:Georgia,serif;font-size:22px}
+    .gallery-card small{display:block;font:10px Arial,sans-serif;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-top:4px}
+    .note{font-size:12px;color:var(--muted);text-align:center;margin-top:18px}
+    .about{background:#10100e;border-top:1px solid #292722;border-bottom:1px solid #292722}
+    .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:center}
+    .monogram{min-height:300px;border:1px solid #4b4032;background:radial-gradient(circle,#29241e,#0c0c0b 70%);display:flex;align-items:center;justify-content:center}
+    .monogram span{font-family:Georgia,serif;font-style:italic;font-size:clamp(90px,15vw,150px);color:#c7b18f}
+    .about-copy p{color:#c7c2b9}
+    .values{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:26px}
+    .value{border-top:1px solid var(--gold);padding-top:12px;font-size:12px;color:#ded6ca}
+    .value b{display:block;color:var(--gold);font-size:20px;font-weight:normal;margin-bottom:5px}
+    .contact{background:linear-gradient(100deg,#161512,#090908)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    .contact p{color:var(--muted)}
+    .contact-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .contact-box{border-left:1px solid var(--gold);padding:10px 0 10px 28px}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px}
+    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .footer-brand{font-family:Georgia,serif;font-style:italic;color:var(--ink);font-size:19px}
+    .tiny{font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+    @media(max-width:760px){.nav{padding:14px 0;align-items:flex-start;flex-direction:column}.nav nav{gap:12px}.nav nav a{font-size:10px}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero-grid{padding-top:42px}.art{min-height:270px}.ink-circle{width:270px}.style-grid{grid-template-columns:repeat(2,1fr)}.style:nth-child(2){border-right:0}.style:nth-child(-n+2){border-bottom:1px solid var(--line)}.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-card{min-height:170px;padding:13px}.gallery-card span{font-size:18px}.about-grid{gap:28px}.monogram{min-height:210px}.contact-box{border-left:0;border-top:1px solid var(--gold);padding:22px 0 0}.values{grid-template-columns:1fr}.wrap{width:min(100% - 30px,1160px)}section{padding:55px 0}}
+    @media(max-width:420px){.gallery-grid{grid-template-columns:1fr}.hero-grid{gap:10px}.actions .button{width:100%}}
+  </style>
 </head>
 <body>
-    <header>
-        <h2>MON PREMIER SITE</h2>
-    </header>
-
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#accueil">Stef Berdot<small>MEMORIAM</small></a>
+    <nav aria-label="Navigation principale">
+      <a href="#accueil">Accueil</a><a href="#apropos">À propos</a><a href="#galerie">Galerie</a><a href="#styles">Styles</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 <main>
-    <h1>Bienvenue sur mon site !</h1>
-    <p>
-        Mon site web est enfin en construction.<br>
-        Bienvenue dans mon univers !
-    </p>
-    <a class="bouton" href="mailto:contact@exemple.fr">
-        Me contacter
-    </a>
+  <section class="hero" id="accueil">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Tattoo artist · Castelginest</div>
+        <h1><em>Stef Berdot</em></h1>
+        <div class="memoriam">M E M O R I A M</div>
+        <div class="tagline">Des idées sur la peau.<br>Des histoires pour la vie.</div>
+        <p class="intro">Bienvenue dans mon univers. Je crée des tatouages personnalisés, du réalisme au graphique, en explorant différents styles pour donner vie à chaque projet.</p>
+        <div class="actions">
+          <a class="button" href="#contact">✦ Me contacter</a>
+          <a class="button outline" href="#galerie">Découvrir les styles ↗</a>
+        </div>
+      </div>
+      <div class="art" aria-label="Illustration décorative">
+        <div class="ink-circle"><div class="tattoo-mark">S<span style="font-size:.55em">B</span></div></div>
+        <div class="art-caption">L'art · L'encre · L'identité</div>
+      </div>
+    </div>
+  </section>
+  <section class="styles" id="styles" aria-label="Styles de tatouage">
+    <div class="wrap style-grid">
+      <div class="style"><div class="symbol">◉</div><h3>Réalisme</h3><p>Des détails et des contrastes qui prennent vie.</p></div>
+      <div class="style"><div class="symbol">✳</div><h3>Graphique</h3><p>Des lignes, des formes et une identité singulière.</p></div>
+      <div class="style"><div class="symbol">⌘</div><h3>Projets personnalisés</h3><p>Une création pensée autour de votre idée.</p></div>
+      <div class="style"><div class="symbol">✦</div><h3>Styles variés</h3><p>Un projet unique, construit ensemble.</p></div>
+    </div>
+  </section>
+  <section id="galerie">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Quelques univers</div><h2>Galerie</h2><div class="rule"></div><p>Chaque tatouage raconte quelque chose. Cette galerie est prête à accueillir tes propres réalisations.</p></div>
+      <div class="gallery-grid">
+        <div class="gallery-card"><span>Réalisme<small>Détails · Ombres · Contrastes</small></span></div>
+        <div class="gallery-card"><span>Graphique<small>Lignes · Géométrie</small></span></div>
+        <div class="gallery-card"><span>Black & grey<small>Noir · Gris · Profondeur</small></span></div>
+        <div class="gallery-card"><span>Composition<small>Équilibre · Mouvement</small></span></div>
+        <div class="gallery-card"><span>Sur mesure<small>Ton idée, notre projet</small></span></div>
+        <div class="gallery-card"><span>Autres styles<small>Explorons les possibilités</small></span></div>
+      </div>
+      <p class="note">Les cases ci-dessus sont des emplacements provisoires. Ajoute tes photos pour montrer tes véritables tatouages.</p>
+    </div>
+  </section>
+  <section class="about" id="apropos">
+    <div class="wrap about-grid">
+      <div class="monogram" aria-label="Monogramme SB"><span>SB</span></div>
+      <div class="about-copy">
+        <div class="eyebrow">À propos</div><h2>Stef Berdot Memoriam</h2><div class="rule" style="margin-left:0"></div>
+        <p>Le tatouage est une rencontre entre une idée, une histoire et la peau qui la porte. Mon approche mêle réalisme, travail graphique et différents univers pour concevoir des projets personnels, réfléchis et adaptés à chaque personne.</p>
+        <p>Basé à Castelginest, au nord de Toulouse, je t'invite à me présenter ton idée afin que nous puissions imaginer ensemble un projet qui te ressemble.</p>
+        <div class="values"><div class="value"><b>✧</b>Projet personnalisé</div><div class="value"><b>✦</b>Échange & écoute</div><div class="value"><b>◈</b>Attention aux détails</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div><div class="eyebrow">Parlons de ton projet</div><h2>Prendre contact</h2><p>Pour une demande de rendez-vous, décris ton idée, la zone du corps envisagée, la taille approximative et ajoute quelques références si tu en as.</p><p><strong>Castelginest</strong><br>Nord de Toulouse, Haute-Garonne</p></div>
+      <div class="contact-box"><div class="eyebrow">Me retrouver et m'écrire</div><p>Choisis le moyen de contact qui te convient.</p><div class="contact-links">
+        <a class="button" href="https://www.instagram.com/stefberdot/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        <a class="button outline" href="mailto:?subject=Demande%20de%20rendez-vous%20tatouage%20-%20Stef%20Berdot%20Memoriam">Envoyer un e-mail ↗</a>
+      </div><p class="note" style="text-align:left">Le bouton e-mail ouvrira ton application de messagerie. L'adresse e-mail professionnelle pourra être ajoutée dès que tu souhaites l'afficher.</p></div>
+    </div>
+  </section>
 </main>
-
 <footer>
-    &copy; 2026 Mon premier site
+  <div class="wrap footer-row"><div><div class="footer-brand">Stef Berdot Memoriam</div><div class="tiny">Tattoo artist · Castelginest</div></div><div>© <span id="year">2026</span> Stef Berdot Memoriam · Tous droits réservés.</div><a class="text-link" href="#accueil">Retour en haut ↑</a></div>
 </footer>
-
 </body>
 </html>
-
