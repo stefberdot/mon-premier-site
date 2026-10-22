@@ -83,6 +83,12 @@
 .boutique-card:hover{border-color:var(--gold)}
 .boutique-card img{width:100%;height:180px;object-fit:cover;display:block} 
 .boutique-card-content{padding:14px;text-align:center}
+    .boutique-card:nth-child(1) img,
+.boutique-card:nth-child(2) img {
+  height: auto; /* Laisse l'image s'adapter à sa vraie hauteur pour ne rien couper */
+  object-fit: contain;
+  background-color: #11110f; /* Fond harmonisé avec le site */
+}
   </style>
 </head>
 <body>
